@@ -1,7 +1,7 @@
-package training.metofficeweather;
+package training.metofficeweather.sitelist;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
+import training.metofficeweather.sitelist.Location;
 
 public class Locations {
     public Location[] getLocations() {

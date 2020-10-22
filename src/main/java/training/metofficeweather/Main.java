@@ -6,6 +6,9 @@ public class Main {
     public static void main(String args[]) throws IOException {
         Scanner scanner = new Scanner(System.in);
         MetClient client = new MetClient();
-        client.foo();
+        client.locationList();
+        System.out.println("Enter location ID");
+        String location = scanner.nextLine();
+        client.forecast(location);
     }
 }	
