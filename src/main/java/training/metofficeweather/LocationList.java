@@ -16,7 +16,7 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
 
-public class MetClient {
+public class LocationList {
     public void locationList() {
         Client metClient = (Client) ClientBuilder.newBuilder().register(JacksonFeature.class).build();
         //Client metClient = ClientBuilder.newClient();
@@ -30,18 +30,5 @@ public class MetClient {
         for (int i = 0; i < locations1.length; i++) {
             System.out.println(locations1[i].getName() + ", region: " + locations1[i].getId());
         }
-    }
-    public void forecast(String locationId) {
-        Client metClient = (Client) ClientBuilder.newBuilder().register(JacksonFeature.class).build();
-        String link = ("http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/"+locationId+"?res=daily&key=74919905-673a-4436-8f8c-4c0f7f8bf9c3");
-        String locationForecast = metClient.target(link).request(MediaType.TEXT_PLAIN).get(String.class);
-        Gson gson = new Gson();
-        training.metofficeweather.forecast.Root root1 = gson.fromJson(locationForecast, training.metofficeweather.forecast.Root.class);
-        SiteRep siteRep = root1.getSiteRep();
-        DV dv = siteRep.getDV();
-        training.metofficeweather.forecast.Location location = dv.getLocation();
-        Period[] period = location.getPeriod();
-        Rep[] rep = period[0].getRep();
-        System.out.println(rep[0].getFeelsLike());
     }
 }
