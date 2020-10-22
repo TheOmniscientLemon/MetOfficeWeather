@@ -18,7 +18,21 @@ public class Forecast {
         DV dv = siteRep.getDV();
         training.metofficeweather.forecast.Location location = dv.getLocation();
         Period[] period = location.getPeriod();
+        //Rep[] rep = period[0].getRep();
+        //System.out.println(rep[0].getFeelsLike());
+        System.out.println("Location name: " + location.getName());
         Rep[] rep = period[0].getRep();
-        System.out.println(rep[0].getFeelsLike());
+        for (int j = 0; j < rep.length ; j++){
+            String hour = (Integer.toString((rep[j].getTime())/60) + ":00");
+            System.out.println("Time " +hour);
+            System.out.println("Temperature: "+rep[j].getTemperature()+ "°C, Feels like: "+rep[j].getFeelsLike()+"°C");
+            System.out.println("Weather type: "+rep[j].getWeatherType());
+            System.out.println("Precipitation Probability: "+rep[j].getPrecipitationProbability());
+            System.out.println("Wind Speed: "+rep[j].getWindSpeed()+ "  (Gust: "+rep[j].getWindGust()+", direction: "+rep[j].getWindDirection()+ ")");
+            System.out.println("Visibility: "+rep[j].getVisibility());
+            System.out.println("Relative humidity: "+rep[j].getRelativeHumidity());
+            System.out.println("Max UV: "+rep[j].getMaxUV());
+        }
+
     }
 }

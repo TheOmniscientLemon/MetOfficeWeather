@@ -1,5 +1,6 @@
 package training.metofficeweather;
 import training.metofficeweather.forecast.Forecast;
+import training.metofficeweather.sitelist.LocationList;
 
 import java.io.IOException;
 import java.util.Scanner;

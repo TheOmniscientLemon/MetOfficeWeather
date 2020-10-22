@@ -14,5 +14,12 @@ public class Location {
     @SerializedName("Period")
     private Period[] period;
 
+    public String getName() {
+        return name;
+    }
+
+    private String name;
+
+
 
 }

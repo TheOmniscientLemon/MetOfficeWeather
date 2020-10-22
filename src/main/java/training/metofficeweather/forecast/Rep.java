@@ -23,6 +23,12 @@ public class Rep {
     private String weatherType;
     @SerializedName("Pp")
     private String precipitationProbability;
+    @SerializedName("$")
+    private int time;
+
+    public int getTime(){
+        return time;
+    }
 
     public String getFeelsLike() {
         return feelsLike;
